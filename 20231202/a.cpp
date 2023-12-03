@@ -3,37 +3,52 @@
 #include <algorithm>
 using namespace std;
 
-int main() {
-    int M, D, y, m, d;
-    cin >> M >> D;
-    cin >> y >> m >> d;
+bool isZorome(std::string number) {
+    // 最初の文字を取得
+    char firstChar = number[0];
 
-    int next_year = 0;
-    int next_month = 0;
-    int next_date = 0;
-
-    if (m == M && d == D) {
-        next_year = y + 1;
-        next_month =  1;
-        next_date =  1;
-        cout << next_year << " " << next_month << " " << next_date << endl;
-        return 0;
-    } else {
-        next_year = y;
+    // 各文字をチェック
+    for (char c : number) {
+        if (c != firstChar) {
+            return false; // 異なる文字があればゾロ目ではない
+        }
     }
 
-    if (d == D) {
-        next_month = m + 1;
-        next_date = 1;
-        cout << next_year << " " << next_month << " " << next_date << endl;
-        return 0;
-    } else {
-        next_month = m;
-        next_date = d + 1;
-        cout << next_year << " " << next_month << " " << next_date << endl;
-        return 0;
-    }
-
-
-    cout << next_year << " " << next_month << " " << next_date << endl;
+    return true; // 全ての文字が同じであればゾロ目
 }
+
+std::string concatenateNumbers(int num1, int num2) {
+    return std::to_string(num1) + std::to_string(num2);
+}
+
+int main() {
+// 1≤N≤100
+// 1≤D 
+// i ≤100 (1≤i≤N)
+// 入力はすべて整数
+
+    int N;
+    cin >> N;
+    int D[N];
+    int ans = 0;
+    for (int i = 0; i < N; i++)
+    {
+        cin >> D[i];
+    }
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 1; j <= D[i]; j++)
+        {
+            std::string result = concatenateNumbers(i + 1, j);
+            bool zorome = isZorome(result);
+
+            if (zorome) {
+                ans++;
+            }
+        }
+    }
+
+    cout << ans << endl;
+
+}
+
