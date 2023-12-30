@@ -4,6 +4,12 @@
 using namespace std;
 const long long INF = 1LL << 60;
 
+template<class T> void chmin(T& a, T b) {
+    if (a > b) {
+        a = b;
+    }
+}
+
 int main() {
     int N;
     cin >> N;
@@ -20,10 +26,10 @@ int main() {
     for (size_t i = 1; i < N; i++)
     {
         if (i == 1) {
-            dp[i] = abs(h[i] - h[i - 1]);
+            chmin(dp[i], dp[i - 1] + abs(h[i] - h[i - 1]));
         }
         else {
-            dp[i] = min(dp[i - 1] + abs(h[i] - h[i - 1]), dp[i - 2] + abs(h[i] - h[i - 2]));
+            chmin(dp[i], dp[i - 2] + abs(h[i] - h[i - 2]));
         }
     }
 
