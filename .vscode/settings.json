@@ -88,6 +88,20 @@
     "concepts": "cpp",
     "numeric": "cpp",
     "algorithm": "cpp",
-    "span": "cpp"
-  }
+    "span": "cpp",
+    "functional": "cpp",
+    "charconv": "cpp",
+    "any": "cpp",
+    "barrier": "cpp",
+    "codecvt": "cpp",
+    "cuchar": "cpp",
+    "coroutine": "cpp",
+    "format": "cpp",
+    "latch": "cpp",
+    "numbers": "cpp",
+    "semaphore": "cpp",
+    "shared_mutex": "cpp",
+    "ranges": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "enabled"
 }
