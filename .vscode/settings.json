@@ -101,7 +101,9 @@
     "numbers": "cpp",
     "semaphore": "cpp",
     "shared_mutex": "cpp",
-    "ranges": "cpp"
+    "ranges": "cpp",
+    "fenwicktree": "cpp",
+    "internal_type_traits": "cpp"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }

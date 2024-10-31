@@ -1,16 +1,19 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 
-struct Package {
+struct Package
+{
     int weight;
     int cost;
     double costPerWeight;
 };
 
-int main() {
+int main()
+{
     int S, M, L, N;
     cin >> S >> M >> L >> N;
 
@@ -21,25 +24,29 @@ int main() {
 
     // コスト効率でソート
     vector<Package> packages = {small, medium, large};
-    sort(packages.begin(), packages.end(), [](const Package &a, const Package &b) {
-        return a.costPerWeight < b.costPerWeight;
-    });
+    sort(packages.begin(), packages.end(), [](const Package &a, const Package &b)
+         { return a.costPerWeight < b.costPerWeight; });
 
     int totalWeight = 0;
     int totalCost = 0;
 
     // 貪欲法による計算
-    for (const auto &pkg : packages) {
-        while (totalWeight + pkg.weight <= N) {
+    for (const auto &pkg : packages)
+    {
+        while (totalWeight + pkg.weight <= N)
+        {
             totalWeight += pkg.weight;
             totalCost += pkg.cost;
         }
     }
 
     // 解が存在しない場合は -1 を出力
-    if (totalWeight < N) {
+    if (totalWeight < N)
+    {
         cout << "-1\n";
-    } else {
+    }
+    else
+    {
         cout << totalCost << "\n";
     }
 
